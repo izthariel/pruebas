@@ -1,0 +1,28 @@
+<bb-card header="Select Market">
+    <bb-section-content>
+        <form #selectMarketForm="ngForm">
+            <div class="fullarea">
+                <bb-input-container label="Select entity type, please" class="bordered">
+                    <select class="col-sm-offset-1 col-sm-8" bb-child [(ngModel)]="selectedMarket" (change)="getMarket()" name="sType" #sType="ngModel" required>
+                        <option value="BME">BME</option>
+                        <option value="LSE">LSEg - LSE</option>
+                        <option value="TQ">LSEg - Turquoise</option>
+                        <option value="TQE">LSEg - Turquoise Euro</option>
+                        <option value="BIT">LSEg - BIT</option>
+                        <option value="CHIX">BATS - CXE (CHIX/CEUX)</option>
+                        <option value="BATE">BATS - BXE (BATE/BEUE)</option>
+                        <!--option value="BEUE">BATS - BEUE</option>
+                        <option value="CEUX">BATS - CEUX</option-->
+                        
+                    </select>
+                    <span *ngIf="!sType.valid" class="spanSmall">Select market</span>
+                </bb-input-container>
+            </div>    
+        </form>
+    </bb-section-content>        
+    <bb-section-footer>
+        <button type="submit" btn="success" [disabled]="selectedMarket === '0'" (click)="continue()" class="continue btn btn-primary btn-success pull-right"> Continue</button>
+        <router-outlet></router-outlet>
+        <bb-button btn="danger" (click)="cancelFunction()" style="cursor:pointer">Back</bb-button>
+    </bb-section-footer>
+    </bb-card>

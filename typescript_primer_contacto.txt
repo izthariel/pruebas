@@ -1,0 +1,66 @@
+https://www.typescriptlang.org/play
+
+console.log("Hello world!")
+
+// la declaracion de variables se hace con indicador de alcance, var o let, seguido del nombre de la variable 
+// tras la declaracion de la variable podemos poner, y se recomienda, el indicador de tipo de variable.
+// si lo queremos inicializar deberemos poner despues =valor 
+var par:number=2
+var impar:number=1
+var indice:number=1
+// Los bucles "for" en typescript  usan la sintesis for([iniciaciones previas];[condicion de fin de bucle];[modificacion postejecucion]) )
+for (let i=0;i<10;i++){
+    console.log(i)
+}
+
+// para ejecutar codigo de forma condicional se usa el if y entre parentesis la condicion a procesar
+// si queremos ejecutar acciones en caso de que la condicion no se cumpla lo haremos por medio de un else seguido del bloque
+// como caso especial si el bloque es otro controlador de flujo no hace falta llaves ejemplo habitual es encadenamiento de 
+// else if
+
+if(par===2){
+    console.log("la variable par es ugual a 2")
+} else if(impar === 1) {
+    console.log("la variable impar es igual a 1")
+} else {
+    console.log(" la variable par no es 2, y la impar no es 1")
+}
+
+// funciones son fragmento de codigo que se ejecutan varias veces por lo que separan del resto del codigo para
+// su reutilizacion
+function sumardosnumeros(sumadorA:number, sumadorB:number){
+return "la suma de "+sumadorA+" con "+sumadorB+" es el valor "+(sumadorA+sumadorB)
+}
+console.log(sumardosnumeros(1,par))
+
+// objetos es la forma de utilizar la informacion que se nos acerca a la realidad
+// un objeto es una construccion con unas propiedades y unos metodos que se le pueden aplicar.
+
+class Nombre{
+    // propiedades publicas
+    public nombre:string="nombre"
+    public apellido:string="apellido"
+    // propiedades privadas
+    private id:number=-1
+    //metodos
+	constructor(){
+	this.id=indice
+	indice+=1
+	}
+    public identificame(){
+        return this.nombre+" "+this.apellido+" "+this.id
+    }
+}
+var chema:Nombre= new Nombre();
+console.log(chema.identificame())
+chema.nombre="jose maria"
+chema.apellido="martin brezmes"
+console.log(chema.identificame())
+var ana:Nombre=new Nombre();
+ana.nombre="ana"
+ana.apellido="de la vega"
+console.log(ana.identificame())
+}
+
+
+
